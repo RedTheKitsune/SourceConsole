@@ -62,16 +62,18 @@ namespace SourceConsole.UI
         {
             if (currentControllers.Count > 0)
             {
+                bool upArrow;
+                bool downArrow;
 #if ENABLE_INPUT_SYSTEM
                 // New Input System
-                bool upArrow = Keyboard.current.upArrowKey.wasPressedThisFrame;
-                bool downArrow = Keyboard.current.downArrowKey.wasPressedThisFrame;
+                upArrow = Keyboard.current.upArrowKey.wasPressedThisFrame;
+                downArrow = Keyboard.current.downArrowKey.wasPressedThisFrame;
 #endif
 
 #if ENABLE_LEGACY_INPUT_MANAGER
-            // Old Input Manager
-            bool upArrow = Input.GetKeyDown(KeyCode.UpArrow);
-            bool downArrow = Input.GetKeyDown(KeyCode.DownArrow);
+                // Old Input Manager
+                upArrow = Input.GetKeyDown(KeyCode.UpArrow);
+                downArrow = Input.GetKeyDown(KeyCode.DownArrow);
 #endif
 
                 if (selectedAutoCompleteIndex == -1)

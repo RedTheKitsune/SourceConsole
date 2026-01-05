@@ -202,16 +202,18 @@ namespace SourceConsole.UI
         {
             if (!ConsoleCanvasController.IsVisible()) return;
 
+            bool upArrow;
+            bool downArrow;
 #if ENABLE_INPUT_SYSTEM
             // New Input System
-            bool upArrow = Keyboard.current.upArrowKey.wasPressedThisFrame;
-            bool downArrow = Keyboard.current.downArrowKey.wasPressedThisFrame;
+            upArrow = Keyboard.current.upArrowKey.wasPressedThisFrame;
+            downArrow = Keyboard.current.downArrowKey.wasPressedThisFrame;
 #endif
 
 #if ENABLE_LEGACY_INPUT_MANAGER
             // Old Input Manager
-            bool upArrow = Input.GetKeyDown(KeyCode.UpArrow);
-            bool downArrow = Input.GetKeyDown(KeyCode.DownArrow);
+            upArrow = Input.GetKeyDown(KeyCode.UpArrow);
+            downArrow = Input.GetKeyDown(KeyCode.DownArrow);
 #endif
 
             if (upArrow || downArrow)
@@ -255,7 +257,7 @@ namespace SourceConsole.UI
 #endif
 #if ENABLE_LEGACY_INPUT_MANAGER
                 // Old Input Manager
-                mouseStartClickPosition = Input.mousePosition
+                mouseStartClickPosition = Input.mousePosition;
 #endif
                 mouseStartClickPanelSize = rectTransform.sizeDelta;
                 mouseStartClickPanelDifference = GetMouseDifference(mouseStartClickPosition);

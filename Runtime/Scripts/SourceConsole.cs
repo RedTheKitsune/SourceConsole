@@ -199,7 +199,7 @@ namespace SourceConsole
 
         public static int RefreshCommands()
         {
-            Debug.Log(string.Join(Environment.NewLine, GetNonUnityNonSystemAssemblies().Select(a => a.FullName)));
+            // Debug.Log(string.Join(Environment.NewLine, GetNonUnityNonSystemAssemblies().Select(a => a.FullName)));
             return RefreshCommands(GetNonUnityNonSystemAssemblies());
         }
 
